@@ -1,31 +1,3 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="Content-Style-Type" content="text/css">
-<title>tank controller</title>
-<style>
-body {
-  background: #eeeeee;
-  font-family: Meiryo;
-  text-align: center;
-}
-
-table {
-width: 250px;
-height: 150px;
-border: 1px #2b2b2b solid;
-}
-
-td, th {
-border: 1px #2b2b2b solid;
-text-align: center;
-}
-
-</style>
-
-<script type="text/javascript" src="/webiopi.js"></script>
-<script type="text/javascript">
 webiopi().ready( function()
 {	// Initialize
 	drive(0.0, 0.0);
@@ -40,11 +12,6 @@ function R_drive(RM)
 {	// Change drive mode. 0 : Stop, 1 : Forward, 2 : Backward, 3 : CW, 4 : CCW
 	webiopi().callMacro( "R_Power", RM);
 }
-
-</script>
-
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script type="text/javascript">
 
 function Convert_Ratio(level){
   switch(level) {
@@ -84,29 +51,26 @@ function Convert_Ratio(level){
   }
   return ratio
 }
+
 function LM_Ratio(){
    level=document.getElementById("L-Morter").textContent;
    l_ratio = Convert_Ratio(level);
    return l_ratio;
 }
+
 function RM_Ratio(){
    level=document.getElementById("R-Morter").textContent;
    r_ratio = Convert_Ratio(level);
    return r_ratio;
 }
-</script>
 
-<script type="text/javascript">
 window.onload = function(){
   document.getElementById("L-Morter").textContent = 0;
   document.getElementById("R-Morter").textContent = 0;
   document.getElementById("LM-Ratio").textContent = 0;
   document.getElementById("RM-Ratio").textContent = 0;
 }
-</script>
 
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script type="text/javascript">
   $(document).ready(function () {
     $("#button_F").on('click', function () {
       l=document.getElementById("L-Morter").textContent;
@@ -286,80 +250,3 @@ window.onload = function(){
     	 }
     	});
   })
-</script>
-</head>
-<body>
-<div align="center">
-    <table>
-        <tbody>
-          <tr>
-              <td colspan="5"><img src="http://192.168.0.25:8080/?action=stream" /></td>
-          </tr>
-          <tr>
-              <td></td>
-              <td>L-Morter</td>
-              <td></td>
-              <td>R-Morter</td>
-              <td></td>
-          </tr>
-            <tr>
-                <td></td>
-                <td id="L-Morter"></td>
-                <td></td>
-                <td id="R-Morter"></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td align="center">
-                  <form><input id="button_F" type="button" value="　　↑　　">
-                </form></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-              <td align="center">
-                <form><input id="button_LL" type="button" value="＜＜">
-              </form></td>
-              <td align="center">
-                <form><input id="button_L" type="button" value="　　←　　">
-              </form></td>
-              <td align="center">
-                <form><input id="button_STOP" type="button" value="STOP">
-              </form></td>
-              <td align="center">
-                <form><input id="button_R" type="button" value="　　→　　">
-              </form></td>
-              <td align="center">
-                <form><input id="button_RR" type="button" value="＞＞">
-              </form></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td align="center">
-                  <form><input id="button_B" type="button" value="　　↓　　">
-                </form></td>
-                <td></td>
-                <td></td>
-            </tr>
-              <tr>
-            <td></td>
-            <td>L-Ratio</td>
-            <td></td>
-            <td>R-Ratio</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td id="LM-Ratio"></td>
-            <td></td>
-            <td id="RM-Ratio"></td>
-            <td></td>
-        </tr>
-        </tbody>
-    </table>
-</div>
-</body>
-</html>
