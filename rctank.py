@@ -32,10 +32,10 @@ class DCMotor:
 			GPIO.pwmWrite(self._pin1, 0.0)
 			GPIO.pwmWrite(self._pin2, -ratio)
 
-#g_motorL = DCMotor( 5, 6 )		# Left motor
-g_motorL = DCMotor( 25, 24 )		# Left motor
-#g_motorR = DCMotor( 13, 19 )	# Right motor
-g_motorR = DCMotor( 23, 22 )	# Right motor
+g_motorL = DCMotor( 5, 6 )		# Left motor
+#g_motorL = DCMotor( 25, 24 )		# Left motor New Tank
+g_motorR = DCMotor( 13, 19 )	# Right motor
+#g_motorR = DCMotor( 23, 22 )	# Right motor New Tank
 
 @webiopi.macro
 def L_Power(LM):
