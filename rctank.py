@@ -37,10 +37,15 @@ g_motorR = DCMotor( 13, 19 )	# Right motor
 
 @webiopi.macro
 def L_Power(LM):
-	LM = float(LM)
-	g_motorL.write(LM)
+    LM = float(LM)
+    g_motorL.write(LM)
 
 @webiopi.macro
 def R_Power(RM):
-	RM = float(RM)
-	g_motorR.write(RM)
+    RM = float(RM)
+    #Speed adjustment in 5 Level
+    if(RM == 0.3):
+        RM = RM + 0.08
+    if(RM == -0.3):
+        RM = RM - 0.08
+    g_motorR.write(RM)
